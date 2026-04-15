@@ -50,6 +50,11 @@ ul {
     padding: 0 40px;
 }
 
+.qodef-header-grid {
+    max-width: 100%;
+    padding: 0 60px;
+}
+
 /* Header */
 #qodef-page-header {
     position: absolute;
@@ -290,6 +295,10 @@ ul {
     background-color: #f0f0f0;
 }
 
+.qodef-section-white {
+    background-color: var(--qodef-white-color);
+}
+
 .qodef-section-dark {
     padding: var(--qodef-section-padding);
     background-color: var(--qodef-main-color);
@@ -404,6 +413,9 @@ ul {
 .qodef-m-contact-form {
     max-width: 700px;
     margin: 0 auto;
+    border: 1px solid #e0e0e0;
+    padding: 60px;
+    background-color: var(--qodef-white-color);
 }
 
 .qodef-m-contact-form label {
