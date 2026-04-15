@@ -260,7 +260,7 @@ section {
 
 /* The Gap */
 #the-gap {
-    background-color: var(--color-bg);
+    background-color: var(--color-white);
     text-align: center;
 }
 
@@ -280,6 +280,10 @@ section {
 }
 
 /* Capabilities */
+#capabilities {
+    background-color: var(--color-bg);
+}
+
 .capabilities-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -314,6 +318,10 @@ section {
     font-size: 1.5rem;
 }
 
+#global-lens {
+    background-color: var(--color-white);
+}
+
 /* BAM */
 #bam {
     background-color: var(--color-text);
@@ -335,6 +343,10 @@ section {
 }
 
 /* Featured Work */
+#featured-work {
+    background-color: var(--color-bg);
+}
+
 .work-card {
     display: flex;
     background-color: var(--color-white);
@@ -362,7 +374,16 @@ section {
     display: block;
 }
 
+#perspectives {
+    background-color: var(--color-white);
+    text-align: center;
+}
+
 /* Experience */
+#experience {
+    background-color: var(--color-bg);
+}
+
 .experience-list {
     list-style: none;
     margin-top: 30px;
