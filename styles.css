@@ -401,9 +401,14 @@ ul {
 }
 
 /* Contact Form */
+.qodef-m-contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
 .qodef-m-contact-form label {
     display: block;
-    font-size: 11px;
+    font-size: 10px;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--qodef-grey-color);
@@ -415,13 +420,15 @@ ul {
 .qodef-m-contact-form select,
 .qodef-m-contact-form textarea {
     width: 100%;
-    padding: 18px 20px;
-    margin-bottom: 25px;
-    border: 1px solid transparent;
-    background-color: #FFFFFF;
+    padding: 12px 0;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: transparent;
     font-family: var(--qodef-font-body);
-    font-size: 15px;
+    font-size: 14px;
     transition: border-color 0.3s ease;
+    border-radius: 0;
 }
 
 .qodef-m-contact-form input:focus,
@@ -432,7 +439,8 @@ ul {
 }
 
 .qodef-m-contact-form textarea {
-    height: 150px;
+    height: 100px;
+    resize: none;
 }
 
 .qodef-m-form-row {
