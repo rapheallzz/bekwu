@@ -1,16 +1,46 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+    // Header Scroll Effect
+    const header = document.getElementById('qodef-page-header');
 
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            header.classList.add('qodef-header--sticky');
+        } else {
+            header.classList.remove('qodef-header--sticky');
+        }
+    });
+
+    // Mobile Menu Toggle
+    const mobileOpener = document.querySelector('.qodef-mobile-header-opener');
+    const menu = document.querySelector('.qodef-menu');
+
+    if (mobileOpener) {
+        mobileOpener.addEventListener('click', () => {
+            menu.classList.toggle('qodef--active');
+        });
+    }
+
+    // Close menu when link is clicked
+    document.querySelectorAll('.qodef-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.remove('qodef--active');
         });
     });
 
-    // Simple scroll reveal effect
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Intersection Observer for animations
     const observerOptions = {
         threshold: 0.1
     };
@@ -18,44 +48,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+                entry.target.classList.add('qodef-animated');
             }
         });
     }, observerOptions);
 
-    document.querySelectorAll('section, .capability, .work-card').forEach(el => {
-        el.classList.add('fade-in');
+    document.querySelectorAll('.qodef-m-section-title, .qodef-grid-item, .qodef-m-hero-text-holder').forEach(el => {
         observer.observe(el);
-    });
-
-    // Header scroll effect
-    const nav = document.getElementById('main-nav');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
-        }
-    });
-
-    // Mobile menu toggle
-    const mobileToggle = document.querySelector('.mobile-nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (mobileToggle) {
-        mobileToggle.addEventListener('click', () => {
-            mobileToggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-    }
-
-    // Close mobile menu when clicking a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            if (mobileToggle) {
-                mobileToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-            }
-        });
     });
 });
