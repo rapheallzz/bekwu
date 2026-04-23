@@ -94,6 +94,41 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
+    // Counter Animation
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = entry.target;
+                const countTo = parseInt(target.getAttribute('data-target'));
+                const prefix = target.getAttribute('data-prefix') || '';
+                const suffix = target.getAttribute('data-suffix') || '';
+                let count = 0;
+                const duration = 2000; // 2 seconds
+                const startTime = performance.now();
+
+                const updateCount = (currentTime) => {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const currentCount = Math.floor(progress * countTo);
+
+                    target.innerText = prefix + currentCount + suffix;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        target.innerText = prefix + countTo + suffix;
+                    }
+                };
+                requestAnimationFrame(updateCount);
+                counterObserver.unobserve(target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.stat-number').forEach(counter => {
+        counterObserver.observe(counter);
+    });
+
     // Set active nav link
     const currentPath = window.location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.nav-links a').forEach(link => {
