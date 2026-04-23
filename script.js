@@ -89,8 +89,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    document.querySelectorAll('section, .capability, .work-card').forEach(el => {
-        el.classList.add('fade-in');
+    document.querySelectorAll('section, .capability, .work-card, .fade-in, .reveal-text').forEach(el => {
+        if (!el.classList.contains('reveal-text') && !el.classList.contains('fade-in')) {
+            el.classList.add('fade-in');
+        }
         observer.observe(el);
     });
 
