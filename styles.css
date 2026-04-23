@@ -1,11 +1,11 @@
 :root {
-    --color-bg: #FFFFFF;
-    --color-text: #000000;
+    --color-bg: #0a0a0a;       /* Midnight */
+    --color-text: #f5f5f5;     /* Off-white text */
     --color-gold: #C5A059;
     --color-gold-light: #D4AF37;
-    --color-accent: #F5F5F3;
-    --color-white: #FFFFFF;
-    --color-dark: #000000;
+    --color-accent: #121212;   /* Soft charcoal */
+    --color-white: #ffffff;    /* Actual white for rare highlights */
+    --color-dark: #000000;     /* Pure black */
 
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Inter', sans-serif;
@@ -63,10 +63,10 @@ a:hover {
     width: 100%;
     z-index: 1000;
     padding: 25px 0;
-    background-color: var(--color-white);
+    background-color: var(--color-bg);
     transition: all 0.4s ease;
     color: var(--color-text);
-    border-bottom: 1px solid #eeeeee;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 #main-nav .container {
@@ -114,8 +114,9 @@ a:hover {
 }
 
 .cta-nav:hover {
-    background-color: var(--color-text);
-    color: var(--color-white) !important;
+    background-color: var(--color-gold);
+    color: var(--color-bg) !important;
+    border-color: var(--color-gold);
     opacity: 1;
 }
 
@@ -161,6 +162,7 @@ section {
     margin-top: 30px;
     transition: all 0.3s ease;
     font-weight: 600;
+    color: var(--color-text);
 }
 
 .button.primary {
@@ -307,14 +309,15 @@ section {
 
 .capability {
     padding: 60px 40px;
-    background-color: var(--color-white);
-    border: 1px solid #eeeeee;
+    background-color: var(--color-accent);
+    border: 1px solid rgba(255,255,255,0.05);
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .capability:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    border-color: var(--color-gold);
 }
 
 .work-card:hover .work-visual img {
@@ -370,8 +373,8 @@ section {
 
 .work-card {
     display: flex;
-    background-color: var(--color-white);
-    border: 1px solid rgba(0,0,0,0.05);
+    background-color: var(--color-accent);
+    border: 1px solid rgba(255,255,255,0.05);
 }
 
 .work-info {
@@ -474,8 +477,9 @@ label {
 input, select, textarea {
     width: 100%;
     padding: 15px;
-    border: 1px solid rgba(0,0,0,0.1);
-    background-color: var(--color-bg);
+    border: 1px solid rgba(255,255,255,0.1);
+    background-color: transparent;
+    color: var(--color-text);
     font-family: var(--font-body);
     font-size: 1rem;
 }
@@ -488,9 +492,9 @@ textarea {
 /* Footer */
 footer {
     padding: 120px 0 60px;
-    background-color: #f9f9f9;
+    background-color: var(--color-dark);
     color: var(--color-text);
-    border-top: 1px solid #eeeeee;
+    border-top: 1px solid rgba(255,255,255,0.05);
 }
 
 .footer-top {
@@ -610,17 +614,26 @@ footer .logo-img {
 }
 
 /* Section Backgrounds */
-.bg-white { background-color: var(--color-white); }
-.bg-sand { background-color: var(--color-bg); }
-.bg-dark { background-color: var(--color-dark); color: var(--color-white); }
+.bg-white { background-color: var(--color-bg); }
+.bg-sand { background-color: var(--color-accent); }
+.bg-dark { background-color: var(--color-dark); }
+.bg-accent { background-color: var(--color-accent); }
 
 /* Refactored Layout & Typography */
 .section-padding-large { padding: 160px 0; }
 .section-padding-xl { padding: 200px 0 100px; }
-.section-border-top { border-top: 1px solid #eeeeee; }
+.section-border-top { border-top: 1px solid rgba(255,255,255,0.05); }
+
+.execution-block {
+    display: flex;
+    gap: 60px;
+    padding: 60px 0;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    align-items: flex-start;
+}
 
 .text-center { text-align: center; }
-.text-white { color: var(--color-white) !important; }
+.text-white { color: var(--color-text) !important; }
 
 .hero-title {
     font-size: clamp(3rem, 8vw, 6rem);
@@ -687,17 +700,18 @@ footer .logo-img {
 .form-card {
     max-width: 800px;
     margin: 0 auto;
-    background: var(--color-white);
+    background: var(--color-accent);
     padding: 80px;
-    border: 1px solid #eeeeee;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 .underline-input {
     border: none !important;
-    border-bottom: 1px solid #cccccc !important;
+    border-bottom: 1px solid rgba(255,255,255,0.2) !important;
     background: transparent !important;
     padding: 10px 0 !important;
+    color: var(--color-text) !important;
     border-radius: 0;
 }
 
