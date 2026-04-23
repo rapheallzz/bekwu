@@ -6,7 +6,7 @@
     <title>BÉKWU CONSULTS | Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
 </head>
@@ -32,12 +32,41 @@
     </nav>
 
     <main>
-        <section id="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('img/banner.png'); background-size: cover; background-position: center; min-height: 90vh; display: flex; align-items: center;">
-            <div class="container">
-                <p class="overline overline-hero">STRATEGY & INTELLIGENCE</p>
-                <h1 class="hero-title text-white">LIFTING.<br>EVERY.<br>VOICE.</h1>
-                <p class="hero-subtitle text-white">Audience Intelligence for Global Brands Expanding Their Reach, Discovering Whitespace, & Building Staying Power.</p>
-                <a href="https://blackaudiencemarketplace.com/global-black-diaspora-report/" target="_blank" rel="noopener noreferrer" class="button" style="background: white; color: black; border: none;">Download Report</a>
+        <section id="hero-slider">
+            <div class="slides">
+                <div class="slide active" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('img/banner.png');">
+                    <div class="container">
+                        <p class="overline overline-hero">STRATEGY & INTELLIGENCE</p>
+                        <h1 class="hero-title text-white">LIFTING.<br>EVERY.<br>VOICE.</h1>
+                        <p class="hero-subtitle text-white">Audience Intelligence for Global Brands Expanding Their Reach, Discovering Whitespace, & Building Staying Power.</p>
+                        <a href="https://blackaudiencemarketplace.com/global-black-diaspora-report/" target="_blank" rel="noopener noreferrer" class="button">Download Report</a>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('img/banner-2.png');">
+                    <div class="container">
+                        <p class="overline overline-hero">STRATEGY & INTELLIGENCE</p>
+                        <h1 class="hero-title text-white">REDEFINING.<br>THE.<br>FUTURE.</h1>
+                        <p class="hero-subtitle text-white">Empowering brands to connect with the Global Black Diaspora through deep insights and actionable strategy.</p>
+                        <a href="connect.html" class="button">Connect With Us</a>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('img/banner-3.png');">
+                    <div class="container">
+                        <p class="overline overline-hero">STRATEGY & INTELLIGENCE</p>
+                        <h1 class="hero-title text-white">DRIVING.<br>REAL.<br>IMPACT.</h1>
+                        <p class="hero-subtitle text-white">Our mission is to ensure that Black and African voices are no longer overlooked, leading to meaningful impact.</p>
+                        <a href="how-we-execute.html" class="button">How We Execute</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <div class="container">
+                    <div class="slider-nav">
+                        <button class="prev-slide" aria-label="Previous Slide"></button>
+                        <button class="next-slide" aria-label="Next Slide"></button>
+                    </div>
+                    <div class="slider-dots"></div>
+                </div>
             </div>
         </section>
 
@@ -45,7 +74,7 @@
             <div class="container">
                 <div class="two-col" style="align-items: flex-start;">
                     <div class="col-text">
-                        <h2 class="section-title" style="font-size: 3.5rem; margin-bottom: 30px;">Closing the Gap in Authentic Representation.</h2>
+                        <h2 class="section-title reveal-text" style="font-size: 3.5rem; margin-bottom: 30px;"><span>Closing the Gap in Authentic Representation.</span></h2>
                     </div>
                     <div class="col-text">
                         <p class="lead-large">Békwu Consults is built for the realities of today’s Attention Economy, where audience behavior moves faster than the systems designed to measure it.</p>
@@ -71,13 +100,13 @@
             <div class="container">
                 <div class="two-col two-col-gap-large">
                     <div class="col-image">
-                        <div class="image-wrapper image-shadow-gold">
+                        <div class="image-wrapper image-shadow-gold zoom-on-hover">
                             <img src="img/african-black-kids.png" alt="African/Black Kids Smiling">
                         </div>
                     </div>
                     <div class="col-text">
                         <p class="overline">OUR SPECIALTY</p>
-                        <h2 class="section-title" style="font-size: 3rem;">The Global Black Diaspora Lens</h2>
+                        <h2 class="section-title reveal-text" style="font-size: 3rem;"><span>The Global Black Diaspora Lens</span></h2>
                         <p class="lead" style="font-family: var(--font-body); font-weight: 600; margin-top: 20px;">Audience Behavior Is No Longer Confined by Geography.</p>
                         <p style="margin-top: 20px; line-height: 1.8;">Our work is rooted in closing the measurement gap and deepening understanding of how audiences move across markets, platforms, and borders—especially within the Global Black Diaspora.</p>
                         <p style="margin-top: 20px; line-height: 1.8;">From Black audiences in the U.S. to diaspora and cross-border communities globally, we help brands and media operators identify where attention, influence, and monetization are being missed.</p>
