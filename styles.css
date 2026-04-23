@@ -172,9 +172,11 @@ section {
     letter-spacing: 2px;
     border: 2px solid var(--color-text);
     margin-top: 30px;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     font-weight: 600;
     color: var(--color-text);
+    position: relative;
+    background-color: transparent;
 }
 
 .button.primary {
@@ -830,6 +832,17 @@ footer .logo-img {
 .bg-white .overline, .bg-sand .overline { color: var(--color-gold); }
 .bg-white p, .bg-sand p { color: rgba(26, 26, 26, 0.8); }
 
+.bg-white .button, .bg-sand .button {
+    border-color: var(--color-text-dark);
+    color: var(--color-text-dark);
+}
+
+.bg-white .button:hover, .bg-sand .button:hover {
+    background-color: var(--color-text-dark) !important;
+    color: var(--color-bg) !important;
+    border-color: var(--color-text-dark) !important;
+}
+
 .hero-title {
     font-size: clamp(3rem, 8vw, 5.5rem);
     line-height: 1.0;
@@ -1068,9 +1081,9 @@ footer .logo-img {
 }
 
 .button:hover {
-    background-color: var(--color-gold);
+    background-color: var(--color-gold) !important;
     color: var(--color-bg) !important;
-    border-color: var(--color-gold);
+    border-color: var(--color-gold) !important;
     opacity: 1;
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(197, 160, 89, 0.2);
