@@ -158,6 +158,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Header Scroll Effect
+    const mainNav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            mainNav.classList.add('scrolled');
+        } else {
+            mainNav.classList.remove('scrolled');
+        }
+    });
+
     // Back to top button visibility and behavior
     const backToTopBtn = document.getElementById('back-to-top');
     if (backToTopBtn) {

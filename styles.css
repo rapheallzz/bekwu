@@ -6,6 +6,9 @@
     --color-accent: #121212;   /* Soft charcoal */
     --color-white: #ffffff;    /* Actual white for rare highlights */
     --color-dark: #000000;     /* Pure black */
+    --color-light: #f9f9f9;    /* Crisp light grey */
+    --color-sand: #f2ede4;     /* Warm sand */
+    --color-text-dark: #1a1a1a; /* Dark text for light sections */
 
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Inter', sans-serif;
@@ -62,18 +65,25 @@ a:hover {
     top: 0;
     width: 100%;
     z-index: 1000;
-    padding: 25px 0;
-    background-color: var(--color-bg);
-    transition: all 0.4s ease;
+    padding: 35px 0;
+    background-color: transparent !important;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     color: var(--color-text);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+#main-nav.scrolled {
+    padding: 15px 0;
+    background-color: rgba(10, 10, 10, 0.95) !important;
+    backdrop-filter: blur(10px);
+    border-bottom-color: rgba(255,255,255,0.05);
 }
 
 #main-nav .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1400px; /* Fluid logo, constrained links */
+    max-width: 1600px;
 }
 
 .logo-link {
@@ -248,9 +258,30 @@ section {
 #hero-slider {
     position: relative;
     height: 100vh;
-    min-height: 600px;
+    min-height: 700px;
     overflow: hidden;
     background-color: #000;
+}
+
+.hero-divider {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.hero-divider svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: var(--color-light);
+}
+
+.hero-divider.blend-dark svg {
+    fill: var(--color-bg);
 }
 
 .slides {
@@ -410,11 +441,16 @@ section {
 .capability {
     position: relative;
     padding: 60px 40px;
-    background-color: var(--color-accent);
+    background-color: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255,255,255,0.05);
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     overflow: hidden;
     z-index: 1;
+}
+
+.bg-white .capability, .bg-sand .capability {
+    background-color: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.05);
 }
 
 .capability::before {
@@ -433,7 +469,7 @@ section {
 
 .capability:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     border-color: var(--color-gold);
     color: var(--color-bg);
 }
@@ -553,7 +589,7 @@ section {
     content: '—';
     position: absolute;
     left: 0;
-    color: var(--color-text);
+    color: inherit;
 }
 
 /* About */
@@ -742,11 +778,6 @@ footer .logo-img {
     transition: all 0.3s ease;
 }
 
-/* Section Backgrounds */
-.bg-white { background-color: var(--color-bg); }
-.bg-sand { background-color: var(--color-accent); }
-.bg-dark { background-color: var(--color-dark); }
-.bg-accent { background-color: var(--color-accent); }
 
 /* Refactored Layout & Typography */
 .section-padding-large { padding: 160px 0; }
@@ -763,6 +794,17 @@ footer .logo-img {
 
 .text-center { text-align: center; }
 .text-white { color: var(--color-text) !important; }
+.text-dark { color: var(--color-text-dark) !important; }
+
+/* Section Backgrounds */
+.bg-white { background-color: var(--color-light); color: var(--color-text-dark); }
+.bg-sand { background-color: var(--color-sand); color: var(--color-text-dark); }
+.bg-dark { background-color: var(--color-bg); color: var(--color-text); }
+.bg-accent { background-color: var(--color-accent); color: var(--color-text); }
+
+.bg-white .section-title, .bg-sand .section-title { color: var(--color-text-dark); }
+.bg-white .overline, .bg-sand .overline { color: var(--color-gold); }
+.bg-white p, .bg-sand p { color: rgba(26, 26, 26, 0.8); }
 
 .hero-title {
     font-size: clamp(3.5rem, 10vw, 7.5rem);
