@@ -670,9 +670,13 @@ input, select, textarea {
     padding: 15px;
     border: 1px solid rgba(255,255,255,0.1);
     background-color: transparent;
-    color: var(--color-text);
+    color: var(--color-text) !important;
     font-family: var(--font-body);
     font-size: 1rem;
+}
+
+input::placeholder, textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
 }
 
 textarea {
@@ -839,8 +843,9 @@ footer .logo-img {
 
 .bg-white .button:hover, .bg-sand .button:hover {
     background-color: var(--color-text-dark) !important;
-    color: var(--color-bg) !important;
+    color: var(--color-white) !important;
     border-color: var(--color-text-dark) !important;
+    opacity: 1;
 }
 
 .hero-title {
