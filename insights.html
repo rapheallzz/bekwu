@@ -58,20 +58,8 @@
                         <p style="margin-bottom: 30px; line-height: 1.8;">Our inaugural cross-market analysis of audience behavior, platform growth, and monetization opportunities across the diaspora.</p>
                         <a href="https://blackaudiencemarketplace.com/global-black-diaspora-report/" target="_blank" rel="noopener noreferrer" class="button">Explore Report</a>
                     </div>
-                    <div class="work-visual" style="background: #111; display: flex; align-items: center; justify-content: center; padding: 40px;">
-                        <!-- Analytic Style Box inspired by BAM/IrisFlex -->
-                        <div style="background: white; padding: 30px; border-left: 5px solid var(--color-gold); width: 100%; color: #111;">
-                            <p style="font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 10px;">The CTV Investment Gap</p>
-                            <div style="height: 150px; display: flex; align-items: flex-end; gap: 10px;">
-                                <div style="flex: 1; background: #eee; height: 100%; position: relative;">
-                                    <div style="position: absolute; bottom: 0; width: 100%; background: #ddd; height: 30%;"></div>
-                                </div>
-                                <div style="flex: 1; background: #eee; height: 100%; position: relative;">
-                                    <div style="position: absolute; bottom: 0; width: 100%; background: var(--color-gold); height: 85%;"></div>
-                                </div>
-                            </div>
-                            <p style="font-size: 0.8rem; margin-top: 15px; opacity: 0.7;">Streaming Behavior vs. Ad Spend Allocation</p>
-                        </div>
+                    <div class="work-visual">
+                        <img src="img/global-cover.png" alt="The Global Black Diaspora Report Cover">
                     </div>
                 </div>
 
@@ -80,10 +68,10 @@
                         <p class="overline" style="color: var(--color-gold);">Newsletter</p>
                         <h3>The Audience Shift</h3>
                         <p>Weekly thoughts and trending topics on audience behavior, media economics, and cultural trends. Join and subscribe for details.</p>
-                        <a href="#" class="button outline">Read on Substack</a>
+                        <a href="#" class="button outline newsletter-trigger">Read on Substack</a>
                     </div>
                     <div class="work-visual">
-                        <div class="placeholder-img" style="background: #E0D8CC;"></div>
+                        <img src="img/family.png" alt="The Audience Shift">
                     </div>
                 </div>
             </div>
@@ -131,6 +119,29 @@
             <path d="M18 15l-6-6-6 6"/>
         </svg>
     </button>
+
+    <div id="newsletter-modal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="modal-header">
+                <p class="overline" style="margin-bottom: 10px;">NEWSLETTER</p>
+                <h3 style="font-size: 2rem; margin-bottom: 15px;">Subscribe to The Audience Shift</h3>
+                <p style="margin-bottom: 30px; color: rgba(255,255,255,0.7);">Get weekly thoughts and trending topics on audience behavior and media economics delivered to your inbox.</p>
+            </div>
+            <form id="newsletter-form">
+                <div class="form-group">
+                    <label for="newsletter-email">Email Address</label>
+                    <input type="email" id="newsletter-email" name="email" required class="underline-input" placeholder="your@email.com">
+                </div>
+                <button type="submit" class="button gold" style="width: 100%; margin-top: 10px;">Subscribe</button>
+            </form>
+            <div id="newsletter-success" style="display: none; text-align: center; padding: 40px 0;">
+                <h3 style="color: var(--color-gold); margin-bottom: 15px;">Thank You!</h3>
+                <p>You've successfully subscribed to our newsletter.</p>
+                <button class="button outline close-modal-btn" style="margin-top: 30px;">Close</button>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
