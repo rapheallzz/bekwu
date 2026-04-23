@@ -95,6 +95,26 @@ a:hover {
     height: 100%;
     width: auto;
     display: block;
+    filter: contrast(1.2) brightness(1.1);
+}
+
+.subpage #main-nav .logo-img {
+    filter: invert(1) brightness(2); /* Ensure black logo is visible on dark subpage headers */
+}
+
+.logo-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.tagline {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--color-gold);
+    margin-top: 5px;
+    font-weight: 700;
+    display: block;
 }
 
 .logo {
@@ -663,6 +683,7 @@ label {
     letter-spacing: 1px;
     margin-bottom: 8px;
     font-weight: 600;
+    color: #ffffff;
 }
 
 input, select, textarea {
@@ -673,6 +694,15 @@ input, select, textarea {
     color: var(--color-text) !important;
     font-family: var(--font-body);
     font-size: 1rem;
+}
+
+option {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+select.underline-input {
+    background-color: #000000 !important;
 }
 
 input::placeholder, textarea::placeholder {
@@ -925,7 +955,7 @@ footer .logo-img {
 }
 
 .form-card label {
-    color: var(--color-text) !important;
+    color: #ffffff !important;
 }
 
 .underline-input {
