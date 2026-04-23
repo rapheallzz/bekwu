@@ -95,11 +95,10 @@ a:hover {
     height: 100%;
     width: auto;
     display: block;
-    filter: contrast(1.2) brightness(1.1);
 }
 
 .subpage #main-nav .logo-img {
-    filter: invert(1) brightness(2); /* Ensure black logo is visible on dark subpage headers */
+    filter: none;
 }
 
 .logo-wrapper {
@@ -754,7 +753,7 @@ footer {
 footer .logo-img {
     height: 40px;
     width: auto;
-    filter: invert(1) brightness(2);
+    filter: none;
 }
 
 .subpage #main-nav {
