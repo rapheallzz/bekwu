@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect | BÉKWU CONSULTS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+</head>
+<body class="subpage">
+    <nav id="main-nav">
+        <div class="container">
+            <a href="index.html" class="logo-link">
+                <img src="img/bekwu-logo-black.jpeg" alt="BÉKWU CONSULTS" class="logo-img">
+            </a>
+            <button class="mobile-nav-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="how-we-execute.html">How We Execute</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="insights.html">Insights</a></li>
+                <li><a href="connect.html" class="cta-nav">Connect</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section id="connect-hero" class="bg-white" style="padding-top: 180px;">
+            <div class="container">
+                <h1 style="font-size: 4rem;">Connect</h1>
+                <p class="lead">Let’s build a clearer path from audience to revenue.</p>
+                <p>Tell us a bit about your business and what you’re looking to solve.</p>
+            </div>
+        </section>
+
+        <section id="form-section" class="bg-sand">
+            <div class="container">
+                <div style="max-width: 700px; margin: 0 auto; background: white; padding: 60px; border: 1px solid #e0e0e0;">
+                    <form class="consultation-form" style="max-width: 100%;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required style="border: none; border-bottom: 1px solid #ccc; background: transparent; padding: 10px 0;">
+                            </div>
+                            <div class="form-group">
+                                <label for="company">Company</label>
+                                <input type="text" id="company" name="company" required style="border: none; border-bottom: 1px solid #ccc; background: transparent; padding: 10px 0;">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="role">Role</label>
+                                <input type="text" id="role" name="role" required style="border: none; border-bottom: 1px solid #ccc; background: transparent; padding: 10px 0;">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required style="border: none; border-bottom: 1px solid #ccc; background: transparent; padding: 10px 0;">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="company-type">Company Type</label>
+                            <select id="company-type" name="company-type" style="border: none; border-bottom: 1px solid #ccc; background: transparent; padding: 10px 0;">
+                                <option value="">Select Option</option>
+                                <option value="Media Company">Media Company</option>
+                                <option value="Streaming Platform">Streaming Platform</option>
+                                <option value="Brand or Advertiser">Brand or Advertiser</option>
+                                <option value="Agency">Agency</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="solve">What are you looking to solve for?</label>
+                            <select id="solve" name="solve" style="border: none; border-bottom: 1px solid #ccc; background: transparent; padding: 10px 0;">
+                                <option value="">Select Option</option>
+                                <option value="Audience Strategy">Audience Strategy</option>
+                                <option value="Measurement or Data">Measurement or Data</option>
+                                <option value="Revenue Strategy">Revenue Strategy</option>
+                                <option value="Custom Research">Custom Research</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="challenge">Primary Challenge</label>
+                            <textarea id="challenge" name="challenge" style="border: none; border-bottom: 1px solid #ccc; background: transparent; padding: 10px 0; height: 100px;"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="outcome">What outcome are you looking to drive?</label>
+                            <textarea id="outcome" name="outcome" style="border: none; border-bottom: 1px solid #ccc; background: transparent; padding: 10px 0; height: 100px;"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="timeline">Timeline</label>
+                            <select id="timeline" name="timeline" style="border: none; border-bottom: 1px solid #ccc; background: transparent; padding: 10px 0;">
+                                <option value="Immediate">Immediate</option>
+                                <option value="Near-term">Near-term</option>
+                                <option value="Exploratory">Exploratory</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="button primary" style="width: 100%;">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <p>Partner with Us to Build Actionable Steps To Grow Your Brand</p>
+                <a href="connect.html" class="connect-link">Connect.</a>
+            </div>
+            <div class="footer-content">
+                <a href="index.html" class="logo-link">
+                    <img src="img/bekwu-logo-black.jpeg" alt="BÉKWU CONSULTS" class="logo-img">
+                </a>
+                <p>&copy; 2026 BÉKWU CONSULTS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" aria-label="Back to Top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

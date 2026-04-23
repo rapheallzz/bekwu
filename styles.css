@@ -1,8 +1,11 @@
 :root {
     --color-bg: #F5F2ED; /* Warm Sand */
     --color-text: #1A1A1A; /* Bold Black */
+    --color-gold: #C5A059; /* Muted Gold */
+    --color-gold-light: #D4AF37; /* Brighter Gold */
     --color-accent: #E0D8CC; /* Muted Sand */
     --color-white: #FFFFFF;
+    --color-dark: #111111;
 
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Inter', sans-serif;
@@ -57,40 +60,35 @@ a:hover {
     top: 0;
     width: 100%;
     z-index: 1000;
-    padding: 30px 0;
-    background-color: transparent;
+    padding: 20px 0;
+    background-color: var(--color-dark);
     transition: all 0.4s ease;
-    color: var(--color-text);
-}
-
-body:not(.subpage) #main-nav:not(.scrolled) {
     color: var(--color-white);
-}
-
-body:not(.subpage) #main-nav:not(.scrolled) .cta-nav {
-    border-color: var(--color-white);
-}
-
-body:not(.subpage) #main-nav:not(.scrolled) .mobile-nav-toggle span {
-    background-color: var(--color-white);
-}
-
-#main-nav.scrolled {
-    padding: 15px 0;
-    background-color: rgba(245, 242, 237, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(26, 26, 26, 0.05);
+    border-bottom: 1px solid rgba(197, 160, 89, 0.2); /* Faint gold border */
 }
 
 #main-nav .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1400px; /* Fluid logo, constrained links */
+}
+
+.logo-link {
+    display: block;
+    height: 50px;
+}
+
+.logo-img {
+    height: 100%;
+    width: auto;
+    display: block;
 }
 
 .logo {
     font-size: 1.5rem;
     letter-spacing: 2px;
+    color: var(--color-gold);
 }
 
 .nav-links {
@@ -108,9 +106,16 @@ body:not(.subpage) #main-nav:not(.scrolled) .mobile-nav-toggle span {
 }
 
 .cta-nav {
-    border: 1px solid var(--color-text);
+    border: 1px solid var(--color-gold);
     padding: 8px 16px;
     border-radius: 0;
+    color: var(--color-gold) !important;
+}
+
+.cta-nav:hover {
+    background-color: var(--color-gold);
+    color: var(--color-dark) !important;
+    opacity: 1;
 }
 
 /* Utility */
@@ -164,11 +169,24 @@ section {
 .button.primary {
     background-color: var(--color-text);
     color: var(--color-white);
+    border-color: var(--color-text);
 }
 
 .button.primary:hover {
-    background-color: transparent;
-    color: var(--color-text);
+    background-color: var(--color-gold);
+    border-color: var(--color-gold);
+    color: var(--color-dark);
+}
+
+.button.gold {
+    background-color: var(--color-gold);
+    color: var(--color-dark);
+    border-color: var(--color-gold);
+}
+
+.button.gold:hover {
+    background-color: var(--color-dark);
+    color: var(--color-gold);
 }
 
 .button.outline:hover {
@@ -473,14 +491,41 @@ textarea {
 
 /* Footer */
 footer {
-    padding: 60px 0;
-    border-top: 1px solid rgba(0,0,0,0.05);
+    padding: 80px 0 40px;
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    border-top: 1px solid var(--color-gold);
+}
+
+.footer-top {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.footer-top p {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.footer-top .connect-link {
+    font-size: 2.5rem;
+    color: var(--color-gold);
+    display: inline-block;
+    border-bottom: 2px solid var(--color-gold);
+    font-family: var(--font-heading);
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 40px;
+}
+
+footer .logo-img {
+    height: 40px;
 }
 
 .subpage #main-nav {
@@ -567,6 +612,11 @@ footer {
     background-color: var(--color-text);
     transition: all 0.3s ease;
 }
+
+/* Section Backgrounds */
+.bg-white { background-color: var(--color-white); }
+.bg-sand { background-color: var(--color-bg); }
+.bg-dark { background-color: var(--color-dark); color: var(--color-white); }
 
 /* Responsive */
 @media (max-width: 992px) {
@@ -684,4 +734,15 @@ footer {
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Force opacity for visual audit */
+.audit-mode .fade-in {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* Navigation Active State */
+.nav-links a.active {
+    color: var(--color-gold);
 }

@@ -28,13 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // Header scroll effect
-    const nav = document.getElementById('main-nav');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
+    // Set active nav link
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+            link.classList.add('active');
         }
     });
 
