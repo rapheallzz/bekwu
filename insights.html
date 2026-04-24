@@ -38,7 +38,11 @@
                 <h1 class="hero-title reveal-text text-white">Insights.</h1>
                 <div class="hero-content-wrapper">
                     <p class="lead-large fade-in">Black & Multicultural Consumer Insight Specialists.</p>
-                    <p class="lead-sub fade-in">We are fueled by research and continuously pressure test our thinking. Explore a selection of our work and perspectives.</p>
+                    <p class="lead-sub fade-in" style="line-height: 2.0;">
+                        <span style="display: block; margin-bottom: 10px;">We are <strong style="color: var(--color-gold);">fueled by research</strong> and</span>
+                        <span style="display: block;">continuously <strong style="color: var(--color-gold);">pressure test our thinking</strong>.</span>
+                        <span style="display: block; margin-top: 10px; opacity: 0.8;">Explore a selection of our work and perspectives.</span>
+                    </p>
                 </div>
             </div>
             <div class="hero-divider blend-dark">
@@ -67,8 +71,9 @@
                     <div class="work-info">
                         <p class="overline" style="color: var(--color-gold);">Newsletter</p>
                         <h3>The Audience Shift</h3>
+                        <br>
                         <p>Weekly thoughts and trending topics on audience behavior, media economics, and cultural trends. Join and subscribe for details.</p>
-                        <a href="#" class="button outline newsletter-trigger">Read on Substack</a>
+                        <a href="https://theaudienceshift.substack.com/" target="_blank" rel="noopener noreferrer" class="button outline">Read on Substack</a>
                     </div>
                     <div class="work-visual">
                         <img src="img/family.png" alt="The Audience Shift">
@@ -102,7 +107,7 @@
     <footer>
         <div class="container">
             <div class="footer-top">
-                <p>Partner with Us to Build Actionable Steps To Grow Your Brand</p>
+                <p>Build A Clearer Path From Audience To Revenue</p>
                 <a href="connect.html" class="connect-link">Connect.</a>
             </div>
             <div class="footer-content">
@@ -120,28 +125,6 @@
         </svg>
     </button>
 
-    <div id="newsletter-modal" class="modal">
-        <div class="modal-content">
-            <button class="close-modal">&times;</button>
-            <div class="modal-header">
-                <p class="overline" style="margin-bottom: 10px;">NEWSLETTER</p>
-                <h3 style="font-size: 2rem; margin-bottom: 15px;">Subscribe to The Audience Shift</h3>
-                <p style="margin-bottom: 30px; color: rgba(255,255,255,0.7);">Get weekly thoughts and trending topics on audience behavior and media economics delivered to your inbox.</p>
-            </div>
-            <form id="newsletter-form">
-                <div class="form-group">
-                    <label for="newsletter-email">Email Address</label>
-                    <input type="email" id="newsletter-email" name="email" required class="underline-input" placeholder="your@email.com">
-                </div>
-                <button type="submit" class="button gold" style="width: 100%; margin-top: 10px;">Subscribe</button>
-            </form>
-            <div id="newsletter-success" style="display: none; text-align: center; padding: 40px 0;">
-                <h3 style="color: var(--color-gold); margin-bottom: 15px;">Thank You!</h3>
-                <p>You've successfully subscribed to our newsletter.</p>
-                <button class="button outline close-modal-btn" style="margin-top: 30px;">Close</button>
-            </div>
-        </div>
-    </div>
 
     <script src="script.js"></script>
 </body>
