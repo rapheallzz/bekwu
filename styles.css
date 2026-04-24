@@ -961,11 +961,11 @@ footer .logo-img {
 
 /* Brands Grid */
 .brands-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 40px;
     align-items: center;
-    justify-items: center;
+    justify-content: center;
 }
 
 .brand-logo {
