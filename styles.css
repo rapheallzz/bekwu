@@ -313,6 +313,10 @@ section {
     fill: var(--color-bg);
 }
 
+.hero-divider.blend-light svg {
+    fill: var(--color-light);
+}
+
 .slides {
     height: 100%;
 }
@@ -791,13 +795,6 @@ footer .logo-img {
     opacity: 0.8;
 }
 
-#why-this-matters {
-    background-color: var(--color-bg);
-}
-
-#whats-inside {
-    background-color: var(--color-bg);
-}
 
 #report-cta {
     background-color: var(--color-accent);
@@ -1255,14 +1252,36 @@ footer .logo-img {
 }
 
 .modal-content {
-    background-color: var(--color-accent);
-    padding: clamp(30px, 8vw, 60px);
-    width: 90%;
-    max-width: 600px;
+    background-color: #0a0a0a;
+    padding: clamp(30px, 5vw, 60px);
+    width: 95%;
+    max-width: 700px;
+    max-height: 85vh;
+    overflow-y: auto;
     position: relative;
     border: 1px solid rgba(255, 255, 255, 0.1);
     transform: translateY(30px);
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-gold) transparent;
+    border-radius: 8px;
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background-color: var(--color-gold);
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 50px 20px 30px;
+        width: 92%;
+        max-height: 85vh;
+        border-radius: 12px;
+    }
 }
 
 .modal.active .modal-content {
