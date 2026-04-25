@@ -68,11 +68,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+            const href = this.getAttribute('href');
+            if (href === '#') return;
 
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 
@@ -189,51 +194,61 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Newsletter Modal Logic
-    const newsletterModal = document.getElementById('newsletter-modal');
-    const newsletterTriggers = document.querySelectorAll('.newsletter-trigger');
-    const closeModals = document.querySelectorAll('.close-modal, .close-modal-btn');
-    const newsletterForm = document.getElementById('newsletter-form');
-    const newsletterSuccess = document.getElementById('newsletter-success');
+    // Modal Logic Utility
+    function setupModal(modalId, triggerClass, formId, successId) {
+        const modal = document.getElementById(modalId);
+        if (!modal) return;
 
-    if (newsletterModal) {
-        newsletterTriggers.forEach(trigger => {
+        const triggers = document.querySelectorAll('.' + triggerClass);
+        const closeBtns = modal.querySelectorAll('.close-modal, .close-modal-btn');
+        const form = document.getElementById(formId);
+        const success = document.getElementById(successId);
+
+        triggers.forEach(trigger => {
             trigger.addEventListener('click', (e) => {
                 e.preventDefault();
-                newsletterModal.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
             });
         });
 
-        const closeModalFunc = () => {
-            newsletterModal.classList.remove('active');
+        const closeModal = () => {
+            modal.classList.remove('active');
             document.body.style.overflow = '';
-            // Reset form and success message after a delay
             setTimeout(() => {
-                if (newsletterForm) newsletterForm.style.display = 'block';
-                if (newsletterSuccess) newsletterSuccess.style.display = 'none';
-                if (newsletterForm) newsletterForm.reset();
+                if (form) form.style.display = 'block';
+                if (success) success.style.display = 'none';
+                if (form) form.reset();
             }, 400);
         };
 
-        closeModals.forEach(btn => {
-            btn.addEventListener('click', closeModalFunc);
+        closeBtns.forEach(btn => btn.addEventListener('click', closeModal));
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
         });
 
-        // Close modal when clicking outside content
-        newsletterModal.addEventListener('click', (e) => {
-            if (e.target === newsletterModal) {
-                closeModalFunc();
-            }
-        });
-
-        if (newsletterForm) {
-            newsletterForm.addEventListener('submit', (e) => {
+        if (form) {
+            form.addEventListener('submit', (e) => {
                 e.preventDefault();
-                // Simulate form submission
-                newsletterForm.style.display = 'none';
-                newsletterSuccess.style.display = 'block';
+
+                // If it's the download form, trigger the PDF download
+                if (formId === 'download-form') {
+                    const link = document.createElement('a');
+                    link.href = 'img/The Global Black Diaspora Report 2026 Edition.pdf';
+                    link.download = 'The Global Black Diaspora Report 2026 Edition.pdf';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                }
+
+                form.style.display = 'none';
+                if (success) success.style.display = 'block';
             });
         }
     }
+
+    // Initialize Modals
+    setupModal('newsletter-modal', 'newsletter-trigger', 'newsletter-form', 'newsletter-success');
+    setupModal('download-modal', 'download-trigger', 'download-form', 'download-success');
 });
