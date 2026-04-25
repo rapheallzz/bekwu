@@ -1230,13 +1230,13 @@ footer .logo-img {
 }
 
 /* Modal Styles */
-.modal {
+.modal, .bam-modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(10, 10, 10, 0.98);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1244,18 +1244,19 @@ footer .logo-img {
     opacity: 0;
     visibility: hidden;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(8px);
 }
 
-.modal.active {
+.modal.active, .bam-modal.active {
     opacity: 1;
     visibility: visible;
 }
 
-.modal-content {
+.modal-content, .bam-modal-content-styled {
     background-color: #0a0a0a;
     padding: clamp(30px, 5vw, 60px);
     width: 95%;
-    max-width: 700px;
+    max-width: 800px;
     max-height: 85vh;
     overflow-y: auto;
     position: relative;
@@ -1267,16 +1268,16 @@ footer .logo-img {
     border-radius: 8px;
 }
 
-.modal-content::-webkit-scrollbar {
+.modal-content::-webkit-scrollbar, .bam-modal-content-styled::-webkit-scrollbar {
     width: 6px;
 }
 
-.modal-content::-webkit-scrollbar-thumb {
+.modal-content::-webkit-scrollbar-thumb, .bam-modal-content-styled::-webkit-scrollbar-thumb {
     background-color: var(--color-gold);
 }
 
 @media (max-width: 480px) {
-    .modal-content {
+    .modal-content, .bam-modal-content-styled {
         padding: 50px 20px 30px;
         width: 92%;
         max-height: 85vh;
@@ -1284,11 +1285,11 @@ footer .logo-img {
     }
 }
 
-.modal.active .modal-content {
+.modal.active .modal-content, .bam-modal.active .bam-modal-content-styled {
     transform: translateY(0);
 }
 
-.close-modal {
+.close-modal, .bam-modal-close {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -1300,8 +1301,136 @@ footer .logo-img {
     line-height: 1;
 }
 
-.close-modal:hover {
+.close-modal:hover, .bam-modal-close:hover {
     color: var(--color-gold);
+}
+
+/* New Modal Content Styling */
+.service-info__badge {
+    color: var(--color-gold);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.modal-form-header h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-family: var(--font-heading);
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -10px;
+    margin-left: -10px;
+}
+
+.col-12, .col-sm-6, .col-lg-12 {
+    position: relative;
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+@media (min-width: 576px) {
+    .col-sm-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+.col-12, .col-lg-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-4 { margin-bottom: 1.5rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 1rem; }
+.w-100 { width: 100%; }
+.opacity-50 { opacity: 0.5; }
+.small { font-size: 0.8rem; }
+
+.theme-btn-main {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
+}
+
+.theme-btn-arrow-left, .theme-btn-arrow-right {
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-btn {
+    flex-grow: 1;
+    padding: 18px 20px;
+}
+
+.theme-bg {
+    background-color: transparent;
+}
+
+.theme-color-white {
+    color: inherit;
+}
+
+/* Floating Download Button */
+#floating-download-btn {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background-color: var(--color-gold);
+    color: var(--color-dark);
+    padding: 15px 25px;
+    border-radius: 50px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    z-index: 999;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#floating-download-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#floating-download-btn:hover {
+    background-color: var(--color-text);
+    transform: translateY(-5px);
+}
+
+#floating-download-btn i {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    #floating-download-btn span {
+        display: none;
+    }
+    #floating-download-btn {
+        padding: 15px;
+        bottom: 20px;
+        left: 20px;
+    }
 }
 
 /* Back to Top Button */

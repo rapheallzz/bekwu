@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
 </head>
@@ -107,85 +108,91 @@
         </div>
     </footer>
 
+    <button id="floating-download-btn" class="download-trigger" aria-label="Download Report">
+        <i class="fa-solid fa-file-arrow-down"></i>
+        <span>Download Report</span>
+    </button>
+
     <button id="back-to-top" aria-label="Back to Top">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M18 15l-6-6-6 6"/>
         </svg>
     </button>
 
-    <div id="download-modal" class="modal">
-        <div class="modal-content" style="max-width: 800px;">
-            <button class="close-modal">&times;</button>
-            <div class="modal-header">
-                <p class="overline" style="margin-bottom: 10px;">DOWNLOAD REPORT</p>
-                <h3 style="font-size: 2rem; margin-bottom: 15px;">Access the 2026 Edition</h3>
-                <p style="margin-bottom: 30px; color: rgba(255,255,255,0.7);">Please fill out the information below to download the report.</p>
-            </div>
-            <form id="download-form" class="consultation-form">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required class="underline-input">
+    <!-- Report Modal -->
+    <div id="report-modal" class="bam-modal">
+        <div class="bam-modal-content-styled">
+            <span class="bam-modal-close close-modal">&times;</span>
+            <div class="contact-forms contact-forms-modal">
+                <div class="modal-form-header mb-4">
+                  <h2 class="service-info__badge mb-2">Research Download</h2>
+                  <h3 class="text-white mb-0">Download the 2026 Edition Report</h3>
+                </div>
+
+                <form id="modal-download-form" class="download-form" method="post">
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <input type="text" name="firstName" placeholder="First Name *" required class="underline-input">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <input type="text" name="lastName" placeholder="Last Name *" required class="underline-input">
+                        </div>
+                        <div class="form-group col-12">
+                            <input type="email" name="email" placeholder="Email Address *" required class="underline-input">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <input type="text" name="company" placeholder="Company" class="underline-input">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <input type="text" name="role" placeholder="Role / Title" class="underline-input">
+                        </div>
+                        <div class="form-group col-12">
+                            <select name="industry" class="underline-input">
+                                <option value="">Select Industry...</option>
+                                <option>Brand / Advertiser</option>
+                                <option>Media Company / Network</option>
+                                <option>Streaming Platform</option>
+                                <option>Advertising Agency</option>
+                                <option>Investment / Finance</option>
+                                <option>Research / Analytics</option>
+                                <option>Production Company / Studio</option>
+                                <option>Independent Creator</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-12">
+                            <select name="interest" class="underline-input">
+                                <option value="">Select Area of Interest...</option>
+                                <option>Advertising & Brand Strategy</option>
+                                <option>Streaming / Platform Strategy</option>
+                                <option>Diaspora Media & Cultural Trends</option>
+                                <option>Investment Opportunities</option>
+                                <option>Content Production & Distribution</option>
+                                <option>Academic / Research</option>
+                                <option>General Interest</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-12 mt-2">
+                            <button type="submit" class="button gold w-100 theme-btn-main">
+                                <span class="theme-btn-arrow-left theme-bg theme-color-white"><i class="fa-solid fa-arrow-left"></i></span>
+                                <span class="theme-btn theme-bg theme-color-white">Access Report</span>
+                                <span class="theme-btn-arrow-right theme-bg theme-color-white"><i class="fa-solid fa-arrow-right"></i></span>
+                            </button>
+                        </div>
+                        <div class="col-12 text-center mt-3">
+                            <p class="small text-white opacity-50">Your information will only be used for research updates and insights from Békwu Consults.</p>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="company">Company</label>
-                        <input type="text" id="company" name="company" required class="underline-input">
+                </form>
+                <div id="modal-thank-you" style="display:none;" class="text-center py-5 download-success">
+                    <div class="mb-4">
+                        <i class="fa fa-check-circle fa-4x" style="color: var(--color-gold);"></i>
                     </div>
+                    <h3 class="text-white">Thank You.</h3>
+                    <p class="text-white">Your research download will begin shortly.</p>
+                    <p class="small text-white opacity-50">Check your downloads folder or <a href="img/The Global Black Diaspora Report 2026 Edition.pdf" download id="manual-download-btn" class="theme-gold-text" style="color: var(--color-gold); text-decoration: underline;">click here</a>.</p>
+                    <button class="button outline close-modal close-modal-btn" style="margin-top: 30px;">Close</button>
                 </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="role">Role</label>
-                        <input type="text" id="role" name="role" required class="underline-input">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required class="underline-input">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="company-type">Company Type</label>
-                    <select id="company-type" name="company-type" class="underline-input">
-                        <option value="">Select Option</option>
-                        <option value="Media Company">Media Company</option>
-                        <option value="Streaming Platform">Streaming Platform</option>
-                        <option value="Brand or Advertiser">Brand or Advertiser</option>
-                        <option value="Agency">Agency</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="solve">What are you looking to solve for?</label>
-                    <select id="solve" name="solve" class="underline-input">
-                        <option value="">Select Option</option>
-                        <option value="Audience Strategy">Audience Strategy</option>
-                        <option value="Measurement or Data">Measurement or Data</option>
-                        <option value="Revenue Strategy">Revenue Strategy</option>
-                        <option value="Custom Research">Custom Research</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="challenge">Primary Challenge</label>
-                    <textarea id="challenge" name="challenge" class="underline-input"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="outcome">What outcome are you looking to drive?</label>
-                    <textarea id="outcome" name="outcome" class="underline-input"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="timeline">Timeline</label>
-                    <select id="timeline" name="timeline" class="underline-input">
-                        <option value="Immediate">Immediate</option>
-                        <option value="Near-term">Near-term</option>
-                        <option value="Exploratory">Exploratory</option>
-                    </select>
-                </div>
-                <button type="submit" class="button gold" style="width: 100%; margin-top: 10px;">Download Now</button>
-            </form>
-            <div id="download-success" style="display: none; text-align: center; padding: 40px 0;">
-                <h3 style="color: var(--color-gold); margin-bottom: 15px;">Thank You!</h3>
-                <p>Your download should begin automatically. If it doesn't, <a href="img/The Global Black Diaspora Report 2026 Edition.pdf" download style="color: var(--color-gold); text-decoration: underline;">click here</a>.</p>
-                <button class="button outline close-modal-btn" style="margin-top: 30px;">Close</button>
             </div>
         </div>
     </div>

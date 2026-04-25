@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
 
                 // If it's the download form, trigger the PDF download
-                if (formId === 'download-form') {
+                if (formId === 'download-form' || formId === 'modal-download-form') {
                     const link = document.createElement('a');
                     link.href = 'img/The Global Black Diaspora Report 2026 Edition.pdf';
                     link.download = 'The Global Black Diaspora Report 2026 Edition.pdf';
@@ -248,7 +248,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Floating Download Button Logic
+    const floatingBtn = document.getElementById('floating-download-btn');
+    if (floatingBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                floatingBtn.classList.add('visible');
+            } else {
+                floatingBtn.classList.remove('visible');
+            }
+        });
+    }
+
     // Initialize Modals
     setupModal('newsletter-modal', 'newsletter-trigger', 'newsletter-form', 'newsletter-success');
     setupModal('download-modal', 'download-trigger', 'download-form', 'download-success');
+    setupModal('report-modal', 'download-trigger', 'modal-download-form', 'modal-thank-you');
 });
