@@ -951,6 +951,27 @@ footer .logo-img {
     font-weight: 300;
 }
 
+.report-context {
+    font-size: 1.35rem;
+    line-height: 1.8;
+    font-family: var(--font-body);
+    font-weight: 400;
+}
+
+.report-hero-subtitle {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.report-hero-lead {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.report-inside-list {
+    margin-top: 40px;
+}
+
 .image-shadow-gold {
     box-shadow: 30px 30px 0px var(--color-gold);
 }
