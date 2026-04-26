@@ -250,6 +250,33 @@ section {
     flex: 1;
 }
 
+.two-col.split-6-4 > .col-image {
+    flex: 1.5;
+}
+
+.two-col.split-6-4 > .col-text {
+    flex: 1;
+}
+
+@media (max-width: 992px) {
+    .two-col.split-6-4 > .col-image,
+    .two-col.split-6-4 > .col-text {
+        flex: 1;
+    }
+}
+
+.container-wide {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+@media (max-width: 1200px) {
+    .container-wide {
+        padding: 0 20px;
+    }
+}
+
 .placeholder-img {
     background-color: var(--color-accent);
     aspect-ratio: 4/3;
