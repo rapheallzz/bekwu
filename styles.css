@@ -1375,6 +1375,7 @@ footer .logo-img {
 
 .mb-2 { margin-bottom: 0.5rem; }
 .mb-4 { margin-bottom: 1.5rem; }
+.mb-5 { margin-bottom: 3rem; }
 .mt-2 { margin-top: 0.5rem; }
 .mt-3 { margin-top: 1rem; }
 .w-100 { width: 100%; }
@@ -1556,4 +1557,60 @@ footer .logo-img {
 /* Navigation Active State */
 .nav-links a.active {
     color: var(--color-gold);
+}
+
+/* Report Insights Grid */
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.insight-card {
+    padding: 40px 30px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bg-sand .insight-card {
+    background-color: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.05);
+}
+
+.insight-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--color-gold);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.insight-icon {
+    font-size: 2.5rem;
+    color: var(--color-gold);
+    margin-bottom: 25px;
+    display: block;
+}
+
+.insight-card h4 {
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.insight-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+    .insights-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .insights-grid {
+        grid-template-columns: 1fr;
+    }
 }
