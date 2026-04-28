@@ -194,6 +194,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Form Submission Logic ---
+    // Replace this with your actual Google Apps Script Web App URL after deployment
+    const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+
+    async function submitToAppsScript(form, formType) {
+        const formData = new FormData(form);
+        formData.append('formType', formType);
+
+        // Use URLSearchParams to ensure compatibility with Google Apps Script doPost(e)
+        const params = new URLSearchParams();
+        for (const pair of formData) {
+            params.append(pair[0], pair[1]);
+        }
+
+        try {
+            // We use no-cors to avoid preflight issues as Apps Script
+            // redirected responses can be tricky with CORS.
+            await fetch(APPS_SCRIPT_URL, {
+                method: 'POST',
+                body: params,
+                mode: 'no-cors'
+            });
+            return true;
+        } catch (error) {
+            console.error('Submission error:', error);
+            return false;
+        }
+    }
+
     // Modal Logic Utility
     function setupModal(modalId, triggerClass, formId, successId) {
         const modal = document.getElementById(modalId);
@@ -229,8 +258,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (form) {
-            form.addEventListener('submit', (e) => {
+            form.addEventListener('submit', async (e) => {
                 e.preventDefault();
+
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const originalBtnText = submitBtn ? submitBtn.innerText : 'Submit';
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.innerText = 'Sending...';
+                }
+
+                // Send to Google Sheets if URL is provided
+                if (APPS_SCRIPT_URL !== 'YOUR_APPS_SCRIPT_URL_HERE') {
+                    await submitToAppsScript(form, formId);
+                }
 
                 // If it's the download form, trigger the PDF download
                 if (formId === 'download-form' || formId === 'modal-download-form') {
@@ -240,6 +281,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.body.appendChild(link);
                     link.click();
                     document.body.removeChild(link);
+                }
+
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = originalBtnText;
                 }
 
                 form.style.display = 'none';
@@ -264,4 +310,36 @@ document.addEventListener('DOMContentLoaded', () => {
     setupModal('newsletter-modal', 'newsletter-trigger', 'newsletter-form', 'newsletter-success');
     setupModal('download-modal', 'download-trigger', 'download-form', 'download-success');
     setupModal('report-modal', 'download-trigger', 'modal-download-form', 'modal-thank-you');
+
+    // Connect Form Submission (Non-modal)
+    const connectForm = document.getElementById('connect-form');
+    const connectSuccess = document.getElementById('connect-success');
+    if (connectForm) {
+        connectForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const submitBtn = connectForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn ? submitBtn.innerText : 'Submit';
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerText = 'Sending...';
+            }
+
+            // Send to Google Sheets if URL is provided
+            if (APPS_SCRIPT_URL !== 'YOUR_APPS_SCRIPT_URL_HERE') {
+                await submitToAppsScript(connectForm, 'connect-form');
+            }
+
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerText = originalBtnText;
+            }
+
+            connectForm.style.display = 'none';
+            if (connectSuccess) connectSuccess.style.display = 'block';
+
+            // Scroll to top of form area
+            connectSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    }
 });

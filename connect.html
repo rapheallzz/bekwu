@@ -51,7 +51,7 @@
         <section id="form-section" class="bg-white section-border-top section-padding-large">
             <div class="container">
                 <div class="form-card">
-                    <form class="consultation-form">
+                    <form id="connect-form" class="consultation-form">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">Name</label>
@@ -112,6 +112,14 @@
                         </div>
                         <button type="submit" class="button primary">Submit Request</button>
                     </form>
+                    <div id="connect-success" style="display:none;" class="text-center py-5">
+                        <div class="mb-4">
+                            <i class="fa fa-check-circle fa-4x" style="color: var(--color-gold);"></i>
+                        </div>
+                        <h3 class="text-white">Request Sent Successfully.</h3>
+                        <p class="text-white">Thank you for reaching out. A member of our team will be in touch shortly.</p>
+                        <button class="button outline" onclick="location.reload()" style="margin-top: 30px;">Send Another Message</button>
+                    </div>
                 </div>
             </div>
         </section>
