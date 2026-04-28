@@ -5,12 +5,14 @@ Follow these steps to connect your website forms to your Google Spreadsheet and 
 ## Step 1: Prepare the Google Spreadsheet
 
 1. Open your Google Spreadsheet: [https://docs.google.com/spreadsheets/d/1n3TAOTl9HXg74KkUNAFIeppE7XL7O2CF_wcXTO8Af8c/](https://docs.google.com/spreadsheets/d/1n3TAOTl9HXg74KkUNAFIeppE7XL7O2CF_wcXTO8Af8c/)
-2. Create two tabs (sheets) at the bottom if they don't exist:
+2. Create three tabs (sheets) at the bottom if they don't exist:
    - Rename one tab to **Connect Submissions**
-   - Rename the other tab to **Report Downloads**
+   - Rename another tab to **Report Downloads**
+   - Rename another tab to **Newsletter Subscriptions**
 3. (Optional) You can add the headers in the first row of each sheet:
    - **Connect Submissions**: `Timestamp`, `Name`, `Company`, `Role`, `Email`, `Company Type`, `Solve For`, `Challenge`, `Outcome`, `Timeline`
    - **Report Downloads**: `Timestamp`, `First Name`, `Last Name`, `Email`, `Company`, `Role`, `Industry`, `Interest`
+   - **Newsletter Subscriptions**: `Timestamp`, `Email`
 
 ## Step 2: Set up the Google Apps Script
 
@@ -80,6 +82,15 @@ function doPost(e) {
       emailBody += "Role: " + (data.role || "") + "\n";
       emailBody += "Industry: " + (data.industry || "") + "\n";
       emailBody += "Interest: " + (data.interest || "") + "\n";
+
+    } else if (formType === 'newsletter-form') {
+      targetSheetName = "Newsletter Subscriptions";
+      rowData = [
+        new Date(),
+        data.email || ""
+      ];
+      emailSubject = "New Newsletter Subscription: " + (data.email || "");
+      emailBody += "Email: " + (data.email || "") + "\n";
     }
 
     if (targetSheetName !== "") {
@@ -89,14 +100,16 @@ function doPost(e) {
         // Add headers if new sheet was created
         if (formType === 'connect-form') {
           targetSheet.appendRow(["Timestamp", "Name", "Company", "Role", "Email", "Company Type", "Solve For", "Challenge", "Outcome", "Timeline"]);
-        } else {
+        } else if (formType === 'modal-download-form') {
           targetSheet.appendRow(["Timestamp", "First Name", "Last Name", "Email", "Company", "Role", "Industry", "Interest"]);
+        } else if (formType === 'newsletter-form') {
+          targetSheet.appendRow(["Timestamp", "Email"]);
         }
       }
       targetSheet.appendRow(rowData);
 
-      // Send Email Notification
-      MailApp.sendEmail(TO_EMAIL, emailSubject, emailBody);
+      // Send Email Notification using GmailApp for better reliability
+      GmailApp.sendEmail(TO_EMAIL, emailSubject, emailBody);
     }
 
     return ContentService.createTextOutput("Success").setMimeType(ContentService.MimeType.TEXT);

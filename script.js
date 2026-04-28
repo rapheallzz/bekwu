@@ -268,8 +268,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     submitBtn.innerText = 'Sending...';
                 }
 
-                // Send to Google Sheets if URL is provided
-                if (APPS_SCRIPT_URL !== 'https://script.google.com/macros/s/AKfycbz9d-GPcavMaqjkUFAUQdJ5LblGsqdmeUmPUoKbPohGKbDafErx1FMlYdjmY6m8BRy7dQ/exec') {
+                // Send to Google Sheets if URL is provided and valid
+                if (APPS_SCRIPT_URL && APPS_SCRIPT_URL.startsWith('https://script.google.com')) {
                     await submitToAppsScript(form, formId);
                 }
 
@@ -319,14 +319,14 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
 
             const submitBtn = connectForm.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn ? submitBtn.innerText : 'Submit';
+            const originalBtnText = submitBtn ? submitBtn.innerText : 'Submit Request';
             if (submitBtn) {
                 submitBtn.disabled = true;
                 submitBtn.innerText = 'Sending...';
             }
 
-            // Send to Google Sheets if URL is provided
-            if (APPS_SCRIPT_URL !== 'YOUR_APPS_SCRIPT_URL_HERE') {
+            // Send to Google Sheets if URL is provided and valid
+            if (APPS_SCRIPT_URL && APPS_SCRIPT_URL.startsWith('https://script.google.com')) {
                 await submitToAppsScript(connectForm, 'connect-form');
             }
 
