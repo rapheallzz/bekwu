@@ -1060,6 +1060,11 @@ footer .logo-img {
     opacity: 1;
 }
 
+.homepage-brands .brand-logo {
+    max-width: 350px;
+    max-height: 140px;
+}
+
 /* Stats / Numbers */
 .stats-grid {
     display: grid;
