@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Form Submission Logic ---
     // Replace this with your actual Google Apps Script Web App URL after deployment
-    const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+    const APPS_SCRIPT_URL = 'https://script.google.com/a/macros/bekwuconsults.com/s/AKfycbz9d-GPcavMaqjkUFAUQdJ5LblGsqdmeUmPUoKbPohGKbDafErx1FMlYdjmY6m8BRy7dQ/exec';
 
     async function submitToAppsScript(form, formType) {
         const formData = new FormData(form);
@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 // Send to Google Sheets if URL is provided
-                if (APPS_SCRIPT_URL !== 'YOUR_APPS_SCRIPT_URL_HERE') {
+                if (APPS_SCRIPT_URL !== 'https://script.google.com/macros/s/AKfycbz9d-GPcavMaqjkUFAUQdJ5LblGsqdmeUmPUoKbPohGKbDafErx1FMlYdjmY6m8BRy7dQ/exec') {
                     await submitToAppsScript(form, formId);
                 }
 
